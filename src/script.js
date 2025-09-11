@@ -103,7 +103,8 @@ headers.forEach((header) => {
   });
 });
 
-// ///////////////// PAGE CONTENT CLOSE
+////////////////////////////////////////
+// PAGE CONTENT CLOSE
 closeBtn.addEventListener("click", () => {
   const allContents = document.querySelectorAll(".accordion-content.open");
   allContents.forEach((content) => {
@@ -113,7 +114,7 @@ closeBtn.addEventListener("click", () => {
 });
 
 ////////////////////////////////////////
-////////// === THEME MODE === //////////
+// THEME MODE
 const moonIcon = document.querySelector("#darkModeBtn");
 const sunIcon = document.querySelector("#lightModeBtn");
 
@@ -146,6 +147,16 @@ const setBackgroundTheme = function (mode) {
   }
 };
 
+function setTailwindIcon(theme) {
+  const tailwindIcon = document.getElementById("tailwind-icon");
+  if (!tailwindIcon) return;
+  if (theme === "dark-mode") {
+    tailwindIcon.src = "/icons/tailwind-w.png";
+  } else {
+    tailwindIcon.src = "/icons/tailwind-b.png";
+  }
+}
+
 const initialThemeState = function () {
   setThemeIcon(initialTheme);
   setBackgroundTheme(initialTheme);
@@ -158,10 +169,23 @@ themeBtn.addEventListener("click", () => {
   const newBodyClass = bodyClass === "dark-mode" ? "light-mode" : "dark-mode";
   setBackgroundTheme(newBodyClass);
   setThemeIcon(newBodyClass);
+  setTailwindIcon(newBodyClass);
 });
 
-// ///////////////// TRANSLATION
+// Accordion text color
+headers.forEach((header) => {
+  const spans = header.querySelectorAll("span");
+  spans.forEach((span) => {
+    if (document.body.classList.contains("dark-mode")) {
+      span.classList.add("whiteColor");
+    } else {
+      span.classList.remove("whiteColor");
+    }
+  });
+});
 
+//////////////////////////////////////////////////
+// TRANSLATION
 let currentLang = "en"; // domyślny język
 const enIcon = document.querySelector("#EN-icon");
 const plIcon = document.querySelector("#PL-icon");
@@ -200,65 +224,8 @@ langBtn.addEventListener("click", () => {
   changeFlag();
 });
 
-// function rotateAccordionArrows() {
-//   headers.forEach((header) => {
-//     const img = header.querySelector("img");
-//     if (img) {
-//       header.addEventListener("click", () => {
-//         img.classList.toggle("rotated");
-//         console.log(`Image in header ${header.textContent} rotated`);
-//       });
-//     }
-//   });
-// }
-
-// rotateAccordionArrows();
-
-// napisz funkcję, która będzie sprawiać, że elmenty span w accortion_header będą dostawać klasę "whiteColor" po zmianie theme na dark-mode
-
-headers.forEach((header) => {
-  const spans = header.querySelectorAll("span");
-  spans.forEach((span) => {
-    if (document.body.classList.contains("dark-mode")) {
-      span.classList.add("whiteColor");
-    } else {
-      span.classList.remove("whiteColor");
-    }
-  });
-});
-
-// const projectLinks = document.querySelectorAll(".projects a");
-// let activePreview = null;
-
-// projectLinks.forEach((link) => {
-//   const img = link.querySelector("img");
-
-//   link.addEventListener("click", (e) => {
-//     if (activePreview === link) {
-//       return;
-//     }
-
-//     e.preventDefault();
-
-//     if (activePreview) {
-//       activePreview.querySelector("img").classList.remove("preview");
-//     }
-
-//     img.classList.add("preview");
-//     activePreview = link;
-//   });
-// });
-
-// document.addEventListener("click", (e) => {
-//   const clickedInside = [...projectLinks].some((link) =>
-//     link.contains(e.target)
-//   );
-//   if (!clickedInside && activePreview) {
-//     activePreview.querySelector("img").classList.remove("preview");
-//     activePreview = null;
-//   }
-// });
-
+//////////////////////////////////////////////////
+// Scaling project images for touch screens
 const projectLinks = document.querySelectorAll(".projects a");
 let activePreview = null;
 
