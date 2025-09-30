@@ -23,7 +23,7 @@ const translations = {
     english: `<i class="fa-solid fa-comment-dots"></i> English B2/B1`,
     contact: "Contact info",
     contactHeading: "Contact me: ",
-    phone: `<i class="fa-solid fa-phone"></i> Phone: 510871509`,
+    phone: `<i class="fa-solid fa-phone"></i> Phone: 510871609`,
     email: "e-mail: wielgosz.mac@gmail.com",
     footerThanks: "Thank you for visting my website!",
     courses: `If you are also learning programming, I encourage you to take Jonnas Schmetmann's <a href="https://codingheroes.io/" class="footer__link">courses</a> `,
@@ -50,7 +50,7 @@ const translations = {
     english: `<i class="fa-solid fa-comment-dots"></i> Angielski B2/B1`,
     contact: "Dane kontaktowe",
     contactHeading: "Skontaktuj się ze mną: ",
-    phone: `<i class="fa-solid fa-phone"></i>Telefon: 510871509`,
+    phone: `<i class="fa-solid fa-phone"></i>Telefon: 510871609`,
     footerThanks: "Dziękuję za odwiedzenie mojej strony!",
     courses:
       'Jeśli też uczysz się programowania, zachęcam Cię do skorzystania z kursów <a href="https://codingheroes.io/" class="footer__link">Jonnasa Schmetmanna</a>',
@@ -103,7 +103,8 @@ headers.forEach((header) => {
   });
 });
 
-// ///////////////// PAGE CONTENT CLOSE
+////////////////////////////////////////
+// PAGE CONTENT CLOSE
 closeBtn.addEventListener("click", () => {
   const allContents = document.querySelectorAll(".accordion-content.open");
   allContents.forEach((content) => {
@@ -113,7 +114,7 @@ closeBtn.addEventListener("click", () => {
 });
 
 ////////////////////////////////////////
-////////// === THEME MODE === //////////
+// THEME MODE
 const moonIcon = document.querySelector("#darkModeBtn");
 const sunIcon = document.querySelector("#lightModeBtn");
 
@@ -146,6 +147,16 @@ const setBackgroundTheme = function (mode) {
   }
 };
 
+function setTailwindIcon(theme) {
+  const tailwindIcon = document.getElementById("tailwind-icon");
+  if (!tailwindIcon) return;
+  if (theme === "dark-mode") {
+    tailwindIcon.src = "/icons/tailwind-w.png";
+  } else {
+    tailwindIcon.src = "/icons/tailwind-b.png";
+  }
+}
+
 const initialThemeState = function () {
   setThemeIcon(initialTheme);
   setBackgroundTheme(initialTheme);
@@ -158,10 +169,23 @@ themeBtn.addEventListener("click", () => {
   const newBodyClass = bodyClass === "dark-mode" ? "light-mode" : "dark-mode";
   setBackgroundTheme(newBodyClass);
   setThemeIcon(newBodyClass);
+  setTailwindIcon(newBodyClass);
 });
 
-// ///////////////// TRANSLATION
+// Accordion text color
+headers.forEach((header) => {
+  const spans = header.querySelectorAll("span");
+  spans.forEach((span) => {
+    if (document.body.classList.contains("dark-mode")) {
+      span.classList.add("whiteColor");
+    } else {
+      span.classList.remove("whiteColor");
+    }
+  });
+});
 
+//////////////////////////////////////////////////
+// TRANSLATION
 let currentLang = "en"; // domyślny język
 const enIcon = document.querySelector("#EN-icon");
 const plIcon = document.querySelector("#PL-icon");
@@ -200,65 +224,8 @@ langBtn.addEventListener("click", () => {
   changeFlag();
 });
 
-// function rotateAccordionArrows() {
-//   headers.forEach((header) => {
-//     const img = header.querySelector("img");
-//     if (img) {
-//       header.addEventListener("click", () => {
-//         img.classList.toggle("rotated");
-//         console.log(`Image in header ${header.textContent} rotated`);
-//       });
-//     }
-//   });
-// }
-
-// rotateAccordionArrows();
-
-// napisz funkcję, która będzie sprawiać, że elmenty span w accortion_header będą dostawać klasę "whiteColor" po zmianie theme na dark-mode
-
-headers.forEach((header) => {
-  const spans = header.querySelectorAll("span");
-  spans.forEach((span) => {
-    if (document.body.classList.contains("dark-mode")) {
-      span.classList.add("whiteColor");
-    } else {
-      span.classList.remove("whiteColor");
-    }
-  });
-});
-
-// const projectLinks = document.querySelectorAll(".projects a");
-// let activePreview = null;
-
-// projectLinks.forEach((link) => {
-//   const img = link.querySelector("img");
-
-//   link.addEventListener("click", (e) => {
-//     if (activePreview === link) {
-//       return;
-//     }
-
-//     e.preventDefault();
-
-//     if (activePreview) {
-//       activePreview.querySelector("img").classList.remove("preview");
-//     }
-
-//     img.classList.add("preview");
-//     activePreview = link;
-//   });
-// });
-
-// document.addEventListener("click", (e) => {
-//   const clickedInside = [...projectLinks].some((link) =>
-//     link.contains(e.target)
-//   );
-//   if (!clickedInside && activePreview) {
-//     activePreview.querySelector("img").classList.remove("preview");
-//     activePreview = null;
-//   }
-// });
-
+//////////////////////////////////////////////////
+// Scaling project images for touch screens
 const projectLinks = document.querySelectorAll(".projects a");
 let activePreview = null;
 
