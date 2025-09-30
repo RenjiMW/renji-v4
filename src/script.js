@@ -23,7 +23,7 @@ const translations = {
     english: `<i class="fa-solid fa-comment-dots"></i> English B2/B1`,
     contact: "Contact info",
     contactHeading: "Contact me: ",
-    phone: `<i class="fa-solid fa-phone"></i> Phone: 510871509`,
+    phone: `<i class="fa-solid fa-phone"></i> Phone: 510 871 609`,
     email: "e-mail: wielgosz.mac@gmail.com",
     footerThanks: "Thank you for visting my website!",
     courses: `If you are also learning programming, I encourage you to take Jonnas Schmetmann's <a href="https://codingheroes.io/" class="footer__link">courses</a> `,
@@ -50,7 +50,7 @@ const translations = {
     english: `<i class="fa-solid fa-comment-dots"></i> Angielski B2/B1`,
     contact: "Dane kontaktowe",
     contactHeading: "Skontaktuj się ze mną: ",
-    phone: `<i class="fa-solid fa-phone"></i>Telefon: 510871509`,
+    phone: `<i class="fa-solid fa-phone"></i>Telefon: 510 871 609`,
     footerThanks: "Dziękuję za odwiedzenie mojej strony!",
     courses:
       'Jeśli też uczysz się programowania, zachęcam Cię do skorzystania z kursów <a href="https://codingheroes.io/" class="footer__link">Jonnasa Schmetmanna</a>',
