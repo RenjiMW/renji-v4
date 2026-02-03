@@ -3,7 +3,7 @@ import "./scss/main.scss";
 
 const translations = {
   en: {
-    title: "Hi 😉, I'm Maciej — a future front-end developer",
+    title: "Hi 😉, I'm Maciej — a junior front-end developer",
     description:
       "On this website, you can find the projects that helped me learn and a bit more about me.",
     buttonSASS: "Projects for learning SASS",
@@ -13,11 +13,10 @@ const translations = {
     aboutMe: "About me",
     aboutMeHeading: "Nice to meet you! 😁",
     aboutMeText1:
-      "I'm still a beginner in front-end development. I started learning in 2020, and since then I've been taking small but consistent steps forward almost every day. Continuous improvement has always been a part of me. My goal is to become a full-stack developer and do all kinds of magic with code – but hey, one step at a time!",
+      "I’m a junior Frontend Developer focused on building clean, responsive interfaces with React and modern CSS. I’ve been learning and building consistently since 2020 — one step at a time, with a strong focus on continuous improvement.",
     aboutMeText2:
-      "As a person, I'm calm and open-minded. I'm rather quiet, but I truly enjoy working in a good team and being around positive people.",
-    aboutMeText3:
-      "Outside of coding, my hobbies include rugby, gym workouts… and video games 🎮",
+      "I am a rather calm person with an open mind. I value working in a good team and the company of positive people.",
+    aboutMeText3: "Outside of coding: rugby, gym, and video games 🎮",
     skills: "Skills",
     skillsHeading: "Here are my skills: ",
     english: `<i class="fa-solid fa-comment-dots"></i> English B2/B1`,
@@ -30,7 +29,7 @@ const translations = {
     icons: `<p class="footer__text footer__icons" data-i18n="icons">The icons used are mainly from <a href="https://fontawesome.com/" class="footer__link" target="_blank" rel="noopener noreferrer">Font Awesome</a> and are licensed free of charge.</p>`,
   },
   pl: {
-    title: "Cześć 😉, jestem Maciej — przyszły front-end developer",
+    title: "Cześć 😉, jestem Maciej — junior front-end developer",
     description:
       "Na tej stronie znajdziesz projekty, które pomogły mi się uczyć, oraz trochę więcej o mnie.",
     buttonSASS: "Projekty do nauki SASS",
@@ -40,11 +39,10 @@ const translations = {
     aboutMe: "O mnie",
     aboutMeHeading: "Miło Cię poznać! 😁",
     aboutMeText1:
-      "Wciąż jestem początkujący w front-endzie. Zacząłem naukę w 2020 roku i od tego czasu robię małe, ale regularne postępy prawie każdego dnia. Ciągłe doskonalenie zawsze było częścią mnie. Moim celem jest zostanie full-stack developerem i robienie wszelkiej magii z kodem – ale hej, krok po kroku!",
+      "Jestem junior Frontend Developerem, który zajmuje się tworzeniem przejrzystych, responsywnych interfejsów przy użyciu React i nowoczesnego CSS. Od 2020 roku nieustannie się uczę i tworzę — krok po kroku, kładąc duży nacisk na ciągłe doskonalenie.",
     aboutMeText2:
-      "Jako osoba jestem spokojny i otwarty. Jestem raczej cichy, ale naprawdę lubię pracować w dobrym zespole i przebywać wśród pozytywnych ludzi.",
-    aboutMeText3:
-      "Poza kodowaniem interesuję się rugby, treningiem siłowym… i grami wideo 🎮",
+      "Jestem raczej spokojną osobą z otwartym umysłem. Cenię pracę w dobrym zespole i towarzystwo pozytywnych ludzi.",
+    aboutMeText3: "Poza kodowaniem lubię: rugby, siłownię i gry wideo 🎮",
     skills: "Umiejętności",
     skillsHeading: "Oto moje umiejętności: ",
     english: `<i class="fa-solid fa-comment-dots"></i> Angielski B2/B1`,
@@ -120,7 +118,7 @@ const sunIcon = document.querySelector("#lightModeBtn");
 
 // Check user's preferred color scheme
 const prefersDarkMode = window.matchMedia(
-  "(prefers-color-scheme: dark)"
+  "(prefers-color-scheme: dark)",
 ).matches;
 const initialTheme = prefersDarkMode ? "dark-mode" : "light-mode";
 
@@ -254,7 +252,7 @@ if (isTouchDevice) {
 
   document.addEventListener("click", (e) => {
     const clickedInside = [...projectLinks].some((link) =>
-      link.contains(e.target)
+      link.contains(e.target),
     );
     if (!clickedInside && activePreview) {
       activePreview.querySelector("img").classList.remove("preview");
